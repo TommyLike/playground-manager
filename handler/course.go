@@ -334,7 +334,7 @@ func (rr *ReqResource) SaveCourseAndResRel(rcp *models.ResourceConfigPath, cours
 	defContainerTemplatePath := fmt.Sprintf("%v/%v_%v", DEFAULT, rcp.EulerBranch, CONTAINER)
 	customTemplatePath := fmt.Sprintf("%v/%v_%v_%v", CUSTOMIZATION, rcp.EulerBranch, courseDir, CONTAINER)
 	oldTemplatePath := fmt.Sprintf("%v/%v", rcp.EulerBranch, LXD)
-	rcp.ResourcePath = trymePath
+	//rcp.ResourcePath = trymePath
 	//logs.Info("试  :", rcp.ResourcePath)
 	//rcpErr := models.QueryResourceConfigPath(rcp, "EulerBranch", "ResourcePath")
 	//if rcp.Id > 0 {
