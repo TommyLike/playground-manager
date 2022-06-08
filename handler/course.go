@@ -343,7 +343,7 @@ func (rr *ReqResource) SaveCourseAndResRel(rcp *models.ResourceConfigPath, cours
 	//	saveErr := SaveResourceTemplate(rr)
 	//	return saveErr
 	//}
-	rcp.ResourcePath = originTemplatePath
+	rcp.ResourcePath = customTemplatePath
 	logs.Info("试  :", rcp.ResourcePath)
 	rcpErr := models.QueryResourceConfigPath(rcp, "EulerBranch", "ResourcePath")
 	if rcp.Id > 0 {
@@ -352,7 +352,8 @@ func (rr *ReqResource) SaveCourseAndResRel(rcp *models.ResourceConfigPath, cours
 		saveErr := SaveResourceTemplate(rr)
 		return saveErr
 	}
-	rcp.ResourcePath = defTemplatePath
+
+	rcp.ResourcePath = oldTemplatePath
 	logs.Info("试  :", rcp.ResourcePath)
 	rcpErr = models.QueryResourceConfigPath(rcp, "EulerBranch", "ResourcePath")
 	if rcp.Id > 0 {
@@ -371,7 +372,8 @@ func (rr *ReqResource) SaveCourseAndResRel(rcp *models.ResourceConfigPath, cours
 		saveErr := SaveResourceTemplate(rr)
 		return saveErr
 	}
-	rcp.ResourcePath = customTemplatePath
+
+	rcp.ResourcePath = defTemplatePath
 	logs.Info("试  :", rcp.ResourcePath)
 	rcpErr = models.QueryResourceConfigPath(rcp, "EulerBranch", "ResourcePath")
 	if rcp.Id > 0 {
@@ -381,7 +383,7 @@ func (rr *ReqResource) SaveCourseAndResRel(rcp *models.ResourceConfigPath, cours
 		return saveErr
 	}
 
-	rcp.ResourcePath = oldTemplatePath
+	rcp.ResourcePath = originTemplatePath
 	logs.Info("试  :", rcp.ResourcePath)
 	rcpErr = models.QueryResourceConfigPath(rcp, "EulerBranch", "ResourcePath")
 	if rcp.Id > 0 {
@@ -390,6 +392,7 @@ func (rr *ReqResource) SaveCourseAndResRel(rcp *models.ResourceConfigPath, cours
 		saveErr := SaveResourceTemplate(rr)
 		return saveErr
 	}
+
 	if rcpErr != nil {
 		logs.Error("QueryResourceConfigPath, rcpErr: ", rcpErr)
 	}
